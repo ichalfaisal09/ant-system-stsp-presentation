@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {ANALYSIS_GROUPS,PSEUDOCODE,complexityComponents,checkTourInvariant,bestSoFar} from '../js/presentation/analysis-model.js';
+import {renderAnalysis} from '../js/presentation/slide-05.js';
+test('all pseudocode sections have matching line numbers',()=>{const valid=new Set(PSEUDOCODE.map(([n])=>n));for(const g of ANALYSIS_GROUPS)for(const n of g.lines)assert.ok(valid.has(n));});
+test('valid V04 Hamiltonian tour accepted',()=>assert.equal(checkTourInvariant([0,1,2,3,0],4),true));
+test('repeated or missing city rejected',()=>{assert.equal(checkTourInvariant([0,1,2,1,0],4),false);assert.equal(checkTourInvariant([0,1,2,3,1],4),false);});
+test('best-so-far is monotonically nonincreasing',()=>assert.deepEqual(bestSoFar([18,13,16,15,12]),[18,13,13,13,12]));
+test('step-count illustration scales with T, m and n',()=>{const r=complexityComponents(4,2,3);assert.equal(r.citySelections,18);assert.equal(r.candidateUpperBound,36);assert.equal(r.distanceCells,16);assert.equal(r.storedTourCities,8);});
+test('invalid complexity parameters rejected',()=>assert.throws(()=>complexityComponents(2,10,50),RangeError));
+test('slide 05 includes tabs and two target asymptotic bounds',()=>{const s=renderAnalysis();assert.match(s,/Theta|Θ\(T · m · n²\)/);assert.match(s,/Θ\(n² \+ m · n\)/);assert.equal((s.match(/role="tab"/g)||[]).length,3);});

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101B2B">
+  <title>Ant System — Presentasi Penelitian</title>
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <div id="app" class="app-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark" aria-hidden="true">AS</span><div><strong>ANT SYSTEM</strong><span>RESEARCH PRESENTATION</span></div></div>
+      <div class="top-meta">MAGISTER TEKNIK INFORMATIKA <span class="meta-dot">·</span> 2026</div>
+    </header>
+    <main id="main-content" class="main-content" tabindex="-1"></main>
+    <footer class="toolbar" aria-label="Kontrol presentasi">
+      <div class="identity"><strong>FAISAL</strong><span>D082261012 · UNIVERSITAS HASANUDDIN</span></div>
+      <div class="slide-navigation" id="slide-controls">
+        <button id="previous" class="icon-button" type="button" aria-label="Slide sebelumnya" title="Sebelumnya (←)">←</button>
+        <span id="slide-counter" class="slide-counter" aria-live="polite">01 / 10</span>
+        <button id="next" class="icon-button" type="button" aria-label="Slide berikutnya" title="Berikutnya (→)">→</button>
+      </div>
+      <div class="tools">
+        <button id="notes-button" class="tool-button" type="button" title="Catatan presenter (P)" aria-expanded="false">Catatan</button>
+        <button id="lab-button" class="tool-button" type="button" title="Simulation Lab (L)">Lab ↗</button>
+        <button id="fullscreen-button" class="tool-button" type="button" title="Fullscreen (F)">Fullscreen</button>
+      </div>
+    </footer>
+    <aside id="notes-panel" class="notes-panel" aria-label="Catatan presenter" hidden>
+      <div class="notes-heading"><strong>Catatan Presenter</strong><button id="notes-close" class="icon-button" type="button" aria-label="Tutup catatan">×</button></div>
+      <div id="notes-content" class="notes-content"></div>
+    </aside>
+  </div>
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
